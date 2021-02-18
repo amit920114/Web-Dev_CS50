@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+	Railway
+{% endblock %}
+
+{% block body %}
+	<h1>Railway Details</h1>
+	<ul>
+		<li>Origin:{{railway.origin}}</li>
+		<li>Destination:{{railway.destination}}</li>
+		<li>Duration:{{railway.duration}}min..</li>
+	</ul>
+	<h2>Passengers</h2>
+	<ul>
+		{% for passenger in passengers %}
+			<li>{{passenger.name}}</li>
+		
+		{% endfor %}	
+	</ul>
+{% endblock %}

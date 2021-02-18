@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Web Page</title>
+	<script>
+		document.addEventListener('DOMContentLoaded', () =>{
+			//start by loading first page
+			load_page('first');
+
+			//set links up to load new pages
+
+			document.querySelectorALL('.nav-link').forEach(
+				links =>{
+					link.onclick=() =>{
+						load_page(link.dataset.page);
+						return false;
+					};
+				});
+		});
+
+		//render contents of new page into the main page
+
+		function load_page(name) {
+			const request = new XMLHttpRequest();
+			request.open('GET', `/${name}`);
+			request.onload=() =>{
+				const response = request.responseText;
+				document.querySelector('#body').innerHTML=response;
+			};
+			request.send();
+		}
+	</script>
+
+</head>
+<body>
+	<ul id = "nav">
+	<li><a href="" class="nav-link" data-page="first">Third Page</a></li>
+	<li><a href="" class="nav-link" data-page="second">Third Page</a></li>
+	<li><a href="" class="nav-link" data-page="third">Third Page</a></li>
+	</ul>
+	<hr>
+	<div id = "body">
+
+</body>
+</html>

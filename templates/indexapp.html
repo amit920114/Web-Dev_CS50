@@ -1,0 +1,24 @@
+{% extends "layoutapp.html"%}
+
+{% block title %}
+	Railways
+{% endblock %}
+{% block body %}
+	<h1>Book a Railway</h1>
+	<form action="{{ url_for('book') }}" method="post">
+		<div class="form-group">
+			<select class="form-control" name="railway_id">
+				{% for railway in Railway %}
+					<option value="{{railway.id}}">{{railway.origin}} to {{railway.destination}}</option>
+				{% endfor %}
+
+			</select>
+		</div>
+		<div class="form-group">
+			<input class="form-control" name="name" placeholder="passenger name">
+		</div>
+		<div class="form-group">
+			<button class="btn btn-primary"> Book A Railway</button>
+		</div>
+	</form>
+{% endblock %}
